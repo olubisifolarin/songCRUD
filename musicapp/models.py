@@ -11,16 +11,19 @@ class Artiste(models.Model):
         return self.first_name
     
 class Song(models.Model):
-    artiste_id = models.ForeignKey(Artiste, on_delete=models.CASCADE, null=True, blank=True)
+    artiste = models.ForeignKey(Artiste, on_delete=models.CASCADE, null=True, blank=True)
     title = models.CharField(max_length=500)
+    artisteId = models.IntegerField() 
     date_released = models.DateTimeField(auto_now_add=True) 
     likes = models.IntegerField()
+   
      
     def __str__(self):
         return self.title
     
 class Lyrics(models.Model):
-    song_id = models.ForeignKey(Song, on_delete=models.CASCADE, null=True, blank=True) 
+    song = models.ForeignKey(Song, on_delete=models.CASCADE, null=True, blank=True)
+    songId = models.IntegerField() 
     content = models.TextField()
     
     

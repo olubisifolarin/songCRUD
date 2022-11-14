@@ -23,7 +23,7 @@ def update_artiste(request, artiste_id):
         return Response(status=status.HTTP_404_NOT_FOUND)
 
 def delete_artiste(request, artiste_id):
-    if request.method == 'POST':
+    if request.method == 'DELETE':
         artiste = Artiste.objects.get(id=artiste_id)
         artiste.delete()
         return Response("Artiste deleted successfully")
@@ -52,7 +52,7 @@ def update_song(request, song_id):
         return Response(status=status.HTTP_404_NOT_FOUND)
     
 def delete_song(request, song_id):
-    if request.method == 'POST':
+    if request.method == 'DELETE':
         song = Song.objects.get(id=song_id)
         song.delete()
         return Response("Song deleted successfully")
